@@ -1,0 +1,20 @@
+[Unit]
+Description=Auto Zip Extractor Service
+After=network.target
+Documentation=https://github.com/jmorera1/Auto-Zip-Extractor-Service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/auto-zip-extractor.sh
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Security options
+ProtectSystem=full
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
